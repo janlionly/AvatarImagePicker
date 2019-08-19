@@ -17,6 +17,8 @@
 		2718F84D230A6EC5006B169B /* AvatarImagePicker.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2718F845230A6EC4006B169B /* AvatarImagePicker.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		2718F852230A6EDB006B169B /* AvatarImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2718F83E230A51F9006B169B /* AvatarImagePicker.swift */; };
 		2718F857230A7A3B006B169B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2718F856230A7A3B006B169B /* UIKit.framework */; };
+		2718F89D230AA9B4006B169B /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2718F89C230AA9B4006B169B /* AVFoundation.framework */; };
+		2718F89F230AA9BD006B169B /* Photos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2718F89E230AA9BD006B169B /* Photos.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +58,8 @@
 		2718F847230A6EC5006B169B /* AvatarImagePicker.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AvatarImagePicker.h; sourceTree = "<group>"; };
 		2718F848230A6EC5006B169B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2718F856230A7A3B006B169B /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		2718F89C230AA9B4006B169B /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		2718F89E230AA9BD006B169B /* Photos.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Photos.framework; path = System/Library/Frameworks/Photos.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +75,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2718F89F230AA9BD006B169B /* Photos.framework in Frameworks */,
+				2718F89D230AA9B4006B169B /* AVFoundation.framework in Frameworks */,
 				2718F857230A7A3B006B169B /* UIKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -131,6 +137,8 @@
 		2718F855230A7A3B006B169B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				2718F89E230AA9BD006B169B /* Photos.framework */,
+				2718F89C230AA9B4006B169B /* AVFoundation.framework */,
 				2718F856230A7A3B006B169B /* UIKit.framework */,
 			);
 			name = Frameworks;
@@ -198,6 +206,7 @@
 				TargetAttributes = {
 					2718F825230A5159006B169B = {
 						CreatedOnToolsVersion = 10.3;
+						LastSwiftMigration = 1030;
 					};
 					2718F844230A6EC4006B169B = {
 						CreatedOnToolsVersion = 10.3;
@@ -413,8 +422,13 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = A73XC757VV;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = AvatarImagePickerDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -424,6 +438,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.janlion.AvatarImagePickerDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = JustForTestID2;
+				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -434,8 +450,13 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = "";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = AvatarImagePickerDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -445,6 +466,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.janlion.AvatarImagePickerDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -461,6 +483,10 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = AvatarImagePicker/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
@@ -490,6 +516,10 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = AvatarImagePicker/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;

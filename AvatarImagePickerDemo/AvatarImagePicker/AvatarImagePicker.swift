@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import AVFoundation
+import Photos
 
 extension UIWindow {
     fileprivate var visibleViewController: UIViewController? {
@@ -25,6 +27,73 @@ extension UIWindow {
                 return vc
             }
         }
+    }
+}
+
+class AuthSettings: NSObject {
+    static func authCamera(message: String, completion: @escaping ()->Void) -> Bool {
+        let status = AVCaptureDevice.authorizationStatus(for: .video)
+        switch status {
+        case .authorized:
+            completion()
+            return true
+        case .denied:
+            DispatchQueue.main.async {
+                presentAlert(message: message)
+            }
+            return false
+        case .restricted:
+            return false
+        case .notDetermined:
+            AVCaptureDevice.requestAccess(for: .video) { (granted) in
+                if granted {
+                    completion()
+                }
+            }
+        default:
+            return false
+        }
+        return false
+    }
+    
+    static func authPhotoLibrary(message: String, completion: @escaping ()->Void) -> Bool {
+        let status = PHPhotoLibrary.authorizationStatus()
+        switch status {
+        case .authorized:
+            completion()
+            return true
+        case .denied:
+            DispatchQueue.main.async {
+                presentAlert(message: message)
+            }
+            return false
+        case .restricted:
+            return false
+        case .notDetermined:
+            PHPhotoLibrary.requestAuthorization { (status) in
+                if status == .authorized {
+                    completion()
+                }
+            }
+            return true
+        default:
+            return false
+        }
+    }
+    
+    static func presentAlert(message: String) {
+        let alertCtrl = UIAlertController(title: NSLocalizedString("Need to Authorize", comment: ""), message: message, preferredStyle: .alert)
+        alertCtrl.addAction(UIAlertAction(title: NSLocalizedString("Go", comment: ""), style: .default, handler: { (_) in
+            if let url = URL(string: UIApplication.openSettingsURLString) {
+                UIApplication.shared.openURL(url)
+            }
+        }))
+        alertCtrl.addAction(UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .cancel, handler: nil))
+        guard let window = UIApplication.shared.windows.first else {
+            print("Get window failed")
+            return
+        }
+        window.visibleViewController?.present(alertCtrl, animated: true, completion: nil)
     }
 }
 
@@ -56,43 +125,61 @@ public class AvatarImagePicker: NSObject, UIImagePickerControllerDelegate, UINav
             imagePicker.delegate = self
             self.selected = selected
             self.cancel = cancel
-            guard let window = UIApplication.shared.delegate?.window else {
+
+            guard let window = UIApplication.shared.windows.first else {
                 print("Get window failed")
                 return
             }
             let sheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
             sheet.addAction(UIAlertAction(title: NSLocalizedString("Photo Library", comment: ""), style: .default, handler: { (_) in
                 self.imagePicker.sourceType = .photoLibrary
-                window?.visibleViewController?.present(self.imagePicker, animated: true, completion: nil)
+                _ = AuthSettings.authPhotoLibrary(message: NSLocalizedString("Go to settings to authorize photo library", comment: ""), completion: {
+                    DispatchQueue.main.async {
+                        window.visibleViewController?.present(self.imagePicker, animated: true, completion: nil)
+                    }
+                })
+                
             }))
             sheet.addAction(UIAlertAction(title: NSLocalizedString("Camera", comment: ""), style: .default, handler: { (_) in
                 self.imagePicker.sourceType = .camera
-                window?.visibleViewController?.present(self.imagePicker, animated: true, completion: nil)
+                _ = AuthSettings.authCamera(message: NSLocalizedString("Go to settings to authorize camera", comment: ""), completion: {
+                    DispatchQueue.main.async {
+                        window.visibleViewController?.present(self.imagePicker, animated: true, completion: nil)
+                    }
+                })
             }))
             sheet.addAction(UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .cancel, handler: { (_) in
                 cancel?()
                 AvatarImagePicker.sharedInstance = nil
             }))
             
-            window?.visibleViewController?.present(sheet, animated: true, completion: nil)
+            window.visibleViewController?.present(sheet, animated: true, completion: nil)
         }
     }
     
     // - MARK: Image picker delegate
     
-    public func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+    @objc public func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let image = info[picker.allowsEditing ? .editedImage : .originalImage] as? UIImage {
-            self.selected(image)
+            DispatchQueue.main.async {
+                self.selected(image)
+            }
         } else {
-            self.cancel?()
+            DispatchQueue.main.async {
+                self.cancel?()
+            }
         }
-        picker.dismiss(animated: true, completion: nil)
-        AvatarImagePicker.sharedInstance = nil
+        picker.dismiss(animated: true) {
+            AvatarImagePicker.sharedInstance = nil
+        }
     }
     
-    public func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
-        self.cancel?()
-        picker.dismiss(animated: true, completion: nil)
-        AvatarImagePicker.sharedInstance = nil
+    @objc public func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        DispatchQueue.main.async {
+            self.cancel?()
+        }
+        picker.dismiss(animated: true) {
+            AvatarImagePicker.sharedInstance = nil
+        }
     }
 }
