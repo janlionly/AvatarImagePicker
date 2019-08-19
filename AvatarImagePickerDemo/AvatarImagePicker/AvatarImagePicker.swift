@@ -9,7 +9,7 @@
 import UIKit
 
 extension UIWindow {
-    public var visibleViewController: UIViewController? {
+    fileprivate var visibleViewController: UIViewController? {
         return UIWindow.getVisibleViewControllerFrom(self.rootViewController)
     }
     
@@ -42,14 +42,14 @@ class AvatarImagePicker: NSObject, UIImagePickerControllerDelegate, UINavigation
         #endif
     }
     
-    static var instance: AvatarImagePicker {
+    public static var instance: AvatarImagePicker {
         if sharedInstance == nil {
             sharedInstance = AvatarImagePicker()
         }
         return sharedInstance!
     }
     
-    func present(_ allowsEditing: Bool = false, selected: @escaping (UIImage)->Void, cancel: (()->Void)?) {
+    public func present(_ allowsEditing: Bool = false, selected: @escaping (UIImage)->Void, cancel: (()->Void)?) {
         autoreleasepool {
             imagePicker = UIImagePickerController()
             imagePicker.allowsEditing = allowsEditing
