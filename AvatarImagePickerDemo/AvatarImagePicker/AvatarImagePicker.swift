@@ -28,7 +28,7 @@ extension UIWindow {
     }
 }
 
-class AvatarImagePicker: NSObject, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+public class AvatarImagePicker: NSObject, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     fileprivate static var sharedInstance: AvatarImagePicker? = nil
     fileprivate var imagePicker: UIImagePickerController!
     fileprivate var selected: ((UIImage)->Void)!
@@ -80,7 +80,7 @@ class AvatarImagePicker: NSObject, UIImagePickerControllerDelegate, UINavigation
     
     // - MARK: Image picker delegate
     
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+    public func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let image = info[picker.allowsEditing ? .editedImage : .originalImage] as? UIImage {
             self.selected(image)
         } else {
@@ -90,7 +90,7 @@ class AvatarImagePicker: NSObject, UIImagePickerControllerDelegate, UINavigation
         AvatarImagePicker.sharedInstance = nil
     }
     
-    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+    public func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         self.cancel?()
         picker.dismiss(animated: true, completion: nil)
         AvatarImagePicker.sharedInstance = nil
