@@ -19,7 +19,7 @@ github "janlionly/AvatarImagePicker"
 
 ## Usage
 
-**AvatarImagePicker** is presented a actionsheet for camera and photo library, and then presented a ImagePickerController.<br>
+**AvatarImagePicker** is presented with an actionsheet for camera and photo library, and then presented an ImagePickerController.<br>
 
 Remember to add **NSCameraUsageDescription** and **NSPhotoLibraryUsageDescription**'s keys for descriptions to your Info.plist
 
