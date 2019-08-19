@@ -13,7 +13,6 @@
 		2718F831230A515A006B169B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2718F830230A515A006B169B /* Assets.xcassets */; };
 		2718F834230A515A006B169B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2718F832230A515A006B169B /* LaunchScreen.storyboard */; };
 		2718F83F230A51F9006B169B /* AvatarImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2718F83E230A51F9006B169B /* AvatarImagePicker.swift */; };
-		2718F849230A6EC5006B169B /* AvatarImagePicker.h in Headers */ = {isa = PBXBuildFile; fileRef = 2718F847230A6EC5006B169B /* AvatarImagePicker.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2718F84C230A6EC5006B169B /* AvatarImagePicker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2718F845230A6EC4006B169B /* AvatarImagePicker.framework */; };
 		2718F84D230A6EC5006B169B /* AvatarImagePicker.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2718F845230A6EC4006B169B /* AvatarImagePicker.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		2718F852230A6EDB006B169B /* AvatarImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2718F83E230A51F9006B169B /* AvatarImagePicker.swift */; };
@@ -132,7 +131,6 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2718F849230A6EC5006B169B /* AvatarImagePicker.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
