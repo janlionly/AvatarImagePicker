@@ -119,7 +119,7 @@ open class AvatarImagePicker: NSObject, UIImagePickerControllerDelegate, UINavig
     }
     
     // Objective-C version for instance
-    @objc public static func avatarImagePicker() -> AvatarImagePicker {
+    @objc public class func avatarImagePicker() -> AvatarImagePicker {
         if sharedInstance == nil {
             sharedInstance = AvatarImagePicker()
         }
