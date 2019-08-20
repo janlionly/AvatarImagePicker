@@ -15,7 +15,7 @@ class ViewController: UIViewController {
     // - MARK: Actions
     
     @IBAction func imageViewTapped(_ sender: Any) {
-        AvatarImagePicker.instance.present(true, selected: { (image) in
+        AvatarImagePicker.instance.present(allowsEditing: true, selected: { (image) in
             self.imageView.image = image
         }) {
             print("Tap cancel")

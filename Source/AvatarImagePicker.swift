@@ -98,10 +98,10 @@ class AuthSettings: NSObject {
 }
 
 open class AvatarImagePicker: NSObject, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-    fileprivate static var sharedInstance: AvatarImagePicker? = nil
-    fileprivate var imagePicker: UIImagePickerController!
-    fileprivate var selected: ((UIImage)->Void)!
-    fileprivate var cancel:(()->Void)?
+    private static var sharedInstance: AvatarImagePicker? = nil
+    private var imagePicker: UIImagePickerController!
+    private var selected: ((UIImage)->Void)!
+    private var cancel:(()->Void)?
     
     private override init(){}
     
@@ -111,14 +111,22 @@ open class AvatarImagePicker: NSObject, UIImagePickerControllerDelegate, UINavig
         #endif
     }
     
-    @objc public static var instance: AvatarImagePicker {
+    public static var instance: AvatarImagePicker {
         if sharedInstance == nil {
             sharedInstance = AvatarImagePicker()
         }
         return sharedInstance!
     }
     
-    @objc open func present(_ allowsEditing: Bool, selected: @escaping (UIImage)->Void, cancel: (()->Void)?) {
+    // instance version for Objective-C
+    @objc public static func avatarImagePicker() -> AvatarImagePicker {
+        if sharedInstance == nil {
+            sharedInstance = AvatarImagePicker()
+        }
+        return sharedInstance!
+    }
+    
+    @objc open func present(allowsEditing: Bool, selected: @escaping (UIImage)->Void, cancel: (()->Void)?) {
         autoreleasepool {
             imagePicker = UIImagePickerController()
             imagePicker.allowsEditing = allowsEditing
@@ -159,7 +167,7 @@ open class AvatarImagePicker: NSObject, UIImagePickerControllerDelegate, UINavig
     
     // - MARK: Image picker delegate
     
-    @objc public func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+    private func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let image = info[picker.allowsEditing ? .editedImage : .originalImage] as? UIImage {
             DispatchQueue.main.async {
                 self.selected(image)
@@ -174,7 +182,7 @@ open class AvatarImagePicker: NSObject, UIImagePickerControllerDelegate, UINavig
         }
     }
     
-    @objc public func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+    private func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         DispatchQueue.main.async {
             self.cancel?()
         }
