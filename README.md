@@ -12,13 +12,14 @@ written in Swift, it's just a single line of code, support for selecting user's 
 
 ## Installation
 
-###CocoaPods
+### CocoaPods
 
 ```ruby
 pod 'AvatarImagePicker'
 ```
 
 ### Carthage
+
 ```ruby
 github "janlionly/AvatarImagePicker"
 ```
