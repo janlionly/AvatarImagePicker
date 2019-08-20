@@ -97,7 +97,7 @@ class AuthSettings: NSObject {
     }
 }
 
-public class AvatarImagePicker: NSObject, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+open class AvatarImagePicker: NSObject, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     fileprivate static var sharedInstance: AvatarImagePicker? = nil
     fileprivate var imagePicker: UIImagePickerController!
     fileprivate var selected: ((UIImage)->Void)!
@@ -111,14 +111,14 @@ public class AvatarImagePicker: NSObject, UIImagePickerControllerDelegate, UINav
         #endif
     }
     
-    public static var instance: AvatarImagePicker {
+    @objc public static var instance: AvatarImagePicker {
         if sharedInstance == nil {
             sharedInstance = AvatarImagePicker()
         }
         return sharedInstance!
     }
     
-    public func present(_ allowsEditing: Bool = false, selected: @escaping (UIImage)->Void, cancel: (()->Void)?) {
+    @objc open func present(_ allowsEditing: Bool, selected: @escaping (UIImage)->Void, cancel: (()->Void)?) {
         autoreleasepool {
             imagePicker = UIImagePickerController()
             imagePicker.allowsEditing = allowsEditing
