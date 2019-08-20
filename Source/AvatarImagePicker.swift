@@ -118,7 +118,7 @@ open class AvatarImagePicker: NSObject, UIImagePickerControllerDelegate, UINavig
         return sharedInstance!
     }
     
-    // instance version for Objective-C
+    // Objective-C version for instance
     @objc public static func avatarImagePicker() -> AvatarImagePicker {
         if sharedInstance == nil {
             sharedInstance = AvatarImagePicker()
@@ -167,7 +167,7 @@ open class AvatarImagePicker: NSObject, UIImagePickerControllerDelegate, UINavig
     
     // - MARK: Image picker delegate
     
-    private func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+    public func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let image = info[picker.allowsEditing ? .editedImage : .originalImage] as? UIImage {
             DispatchQueue.main.async {
                 self.selected(image)
@@ -182,7 +182,7 @@ open class AvatarImagePicker: NSObject, UIImagePickerControllerDelegate, UINavig
         }
     }
     
-    private func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+    public func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         DispatchQueue.main.async {
             self.cancel?()
         }
