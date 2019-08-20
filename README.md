@@ -1,19 +1,25 @@
 <img src="https://github.com/janlionly/AvatarImagePicker/blob/master/Resources/AvatarImagePickerPresentation.png" width="250" height="541">
 
+[![Version](https://img.shields.io/cocoapods/v/AvatarImagePicker.svg?style=flat)](https://cocoapods.org/pods/AvatarImagePicker)
 [![Carthage Compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
-[![License](https://img.shields.io/cocoapods/l/OpalImagePicker.svg?style=flat)](https://github.com/janlionly/AvatarImagePicker/blob/master/LICENSE)
-[![Platform](https://img.shields.io/cocoapods/p/ImagePicker.svg?style=flat)](https://github.com/janlionly/AvatarImagePicker)
-![Swift](https://img.shields.io/badge/%20in-swift%204.0-orange.svg)
+[![License](https://img.shields.io/cocoapods/l/AvatarImagePicker.svg?style=flat)](https://github.com/janlionly/AvatarImagePicker/blob/master/LICENSE)
+[![Platform](https://img.shields.io/cocoapods/p/AvatarImagePicker.svg?style=flat)](https://github.com/janlionly/AvatarImagePicker)
+![Swift](https://img.shields.io/badge/%20in-swift%204.2-orange.svg)
 
 ## Description
 **AvatarImagePicker** is a photo library and camera Image Picker for iOS  
-written in Swift, it's just a single line of code, support for selecting user's avatar by Camera or Photo Library, editing the selected image, it means to replace for UIImagePickerController. Compatible with both Swift and Objective-C.
+written in Swift, it's just a single line of code, support for selecting user's avatar by Camera or Photo Library, editing the selected image. Also, it supports auth verification, if camera or photo library was denied, it will alert the user to the settings for opening it. it means to replace for UIImagePickerController. Compatible with both Swift and Objective-C.
 
 ## Installation
 
+###CocoaPods
+
+```ruby
+pod 'AvatarImagePicker'
+```
+
 ### Carthage
 ```ruby
-platform :ios, '9.0'
 github "janlionly/AvatarImagePicker"
 ```
 
@@ -34,7 +40,7 @@ AvatarImagePicker.instance.present(true, selected: { (image) in
 ## Requirements
 
 - iOS 9.0+
-- Swift 4 to 5.0
+- Swift 4.2 to 5.0
 
 ## Author
 
