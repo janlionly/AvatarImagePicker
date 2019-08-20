@@ -30,12 +30,24 @@ github "janlionly/AvatarImagePicker"
 
 Remember to add **NSCameraUsageDescription** and **NSPhotoLibraryUsageDescription**'s keys for descriptions to your Info.plist
 
+### Swift
+
 ```swift
-AvatarImagePicker.instance.present(true, selected: { (image) in
+AvatarImagePicker.instance.present(allowsEditing: true, selected: { (image) in
 	// selected image
 }) {
-	// tap cancel
+	// tapped cancel
    }
+```
+
+### Objective-C
+
+```objc
+[[AvatarImagePicker avatarImagePicker] presentWithAllowsEditing:YES selected:^(UIImage * _Nonnull image) {
+        // selected image
+    } cancel:^{
+        // tapped cancel
+    }];
 ```
 
 ## Requirements
