@@ -22,6 +22,7 @@
 		27A0AE97235651360023D694 /* AvatarImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27A0AE96235651360023D694 /* AvatarImageView.swift */; };
 		27A0AE9A23565FA20023D694 /* YYWebImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27A0AE98235657340023D694 /* YYWebImage.framework */; };
 		27A0AE9D2356603F0023D694 /* YYWebImage.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 27A0AE98235657340023D694 /* YYWebImage.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		27A0AE9E2356707F0023D694 /* AvatarImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27A0AE96235651360023D694 /* AvatarImageView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -275,6 +276,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				27A0AE9E2356707F0023D694 /* AvatarImageView.swift in Sources */,
 				2718F852230A6EDB006B169B /* AvatarImagePicker.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

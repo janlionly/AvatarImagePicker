@@ -16,7 +16,7 @@ extension UIColor {
 }
 
 open class AvatarImageView: UIImageView {
-    private let indicatorTag = 4872922739
+    private let indicatorTag: Int = 487292739
     
     @IBInspectable @objc open var isRound: Bool = false {
         didSet {
