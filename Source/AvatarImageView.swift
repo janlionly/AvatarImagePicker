@@ -18,14 +18,14 @@ extension UIColor {
 open class AvatarImageView: UIImageView {
     private let indicatorTag: Int = 487292739
     
-    @IBInspectable @objc open var isRound: Bool = false {
+    @objc open var isRound: Bool = false {
         didSet {
             updateRadius()
         }
     }
-    @IBInspectable @objc open var defaultImage: UIImage? = nil
+    @objc open var defaultImage: UIImage? = nil
     
-    @IBInspectable @objc open var indicatorColor: UIColor = UIColor.clear {
+    @objc open var indicatorColor: UIColor = UIColor.clear {
         didSet {
             updateIndicator()
         }
@@ -55,17 +55,22 @@ open class AvatarImageView: UIImageView {
         }
     }
 
-    required public init?(coder: NSCoder) {
+    public required init?(coder: NSCoder) {
         super.init(coder: coder)
+    }
+    
+    open override func awakeFromNib() {
+        super.awakeFromNib()
         initUI()
         updateRadius()
     }
     
-    override init(frame: CGRect) {
+    public override init(frame: CGRect) {
         super.init(frame: frame)
         initUI()
         updateRadius()
     }
+    
     
     override open var bounds: CGRect {
         didSet {
