@@ -19,8 +19,6 @@
 		2718F857230A7A3B006B169B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2718F856230A7A3B006B169B /* UIKit.framework */; };
 		2718F89D230AA9B4006B169B /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2718F89C230AA9B4006B169B /* AVFoundation.framework */; };
 		2718F89F230AA9BD006B169B /* Photos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2718F89E230AA9BD006B169B /* Photos.framework */; };
-		27A0AE9A23565FA20023D694 /* YYWebImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27A0AE98235657340023D694 /* YYWebImage.framework */; };
-		27A0AE9D2356603F0023D694 /* YYWebImage.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 27A0AE98235657340023D694 /* YYWebImage.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,7 +38,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				27A0AE9D2356603F0023D694 /* YYWebImage.framework in Embed Frameworks */,
 				2718F84D230A6EC5006B169B /* AvatarImagePicker.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -62,7 +59,6 @@
 		2718F856230A7A3B006B169B /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		2718F89C230AA9B4006B169B /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		2718F89E230AA9BD006B169B /* Photos.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Photos.framework; path = System/Library/Frameworks/Photos.framework; sourceTree = SDKROOT; };
-		27A0AE98235657340023D694 /* YYWebImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = YYWebImage.framework; path = Carthage/Build/iOS/YYWebImage.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,7 +77,6 @@
 				2718F89F230AA9BD006B169B /* Photos.framework in Frameworks */,
 				2718F89D230AA9B4006B169B /* AVFoundation.framework in Frameworks */,
 				2718F857230A7A3B006B169B /* UIKit.framework in Frameworks */,
-				27A0AE9A23565FA20023D694 /* YYWebImage.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -132,7 +127,6 @@
 		2718F855230A7A3B006B169B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				27A0AE98235657340023D694 /* YYWebImage.framework */,
 				2718F89E230AA9BD006B169B /* Photos.framework */,
 				2718F89C230AA9B4006B169B /* AVFoundation.framework */,
 				2718F856230A7A3B006B169B /* UIKit.framework */,

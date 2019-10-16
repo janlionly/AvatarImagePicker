@@ -9,26 +9,16 @@
 import UIKit
 
 class ViewController: UIViewController {
-    @IBOutlet weak var imageView: AvatarImageView!
+    @IBOutlet weak var imageView: UIImageView!
     
-    @IBOutlet weak var smallImageView: AvatarImageView!
     // Instruction: add <NSCameraUsageDescription> and <NSPhotoLibraryUsageDescription>'s descriptions to your Info.plist
     // - MARK: Actions
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        imageView.url = "http://images.xuejuzi.cn/1612/1_161230185104_1.jpg"
-        imageView.imageDidLoadClosure = { [weak self] image in
-            self?.smallImageView.image = image
-        }
-        
-        imageView.tapClosure = {
-            AvatarImagePicker.instance.present(allowsEditing: true, selected: { (image) in
-                self.imageView.image = image
-            }) {
-                print("Tap cancel")
-            }
+    @IBAction func imageViewTapped(_ sender: Any) {
+        AvatarImagePicker.instance.present(allowsEditing: true, selected: { (image) in
+            self.imageView.image = image
+        }) {
+            print("Tap cancel")
         }
     }
 }
