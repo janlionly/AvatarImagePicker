@@ -19,10 +19,8 @@
 		2718F857230A7A3B006B169B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2718F856230A7A3B006B169B /* UIKit.framework */; };
 		2718F89D230AA9B4006B169B /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2718F89C230AA9B4006B169B /* AVFoundation.framework */; };
 		2718F89F230AA9BD006B169B /* Photos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2718F89E230AA9BD006B169B /* Photos.framework */; };
-		27A0AE97235651360023D694 /* AvatarImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27A0AE96235651360023D694 /* AvatarImageView.swift */; };
 		27A0AE9A23565FA20023D694 /* YYWebImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27A0AE98235657340023D694 /* YYWebImage.framework */; };
 		27A0AE9D2356603F0023D694 /* YYWebImage.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 27A0AE98235657340023D694 /* YYWebImage.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		27A0AE9E2356707F0023D694 /* AvatarImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27A0AE96235651360023D694 /* AvatarImageView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,7 +62,6 @@
 		2718F856230A7A3B006B169B /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		2718F89C230AA9B4006B169B /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		2718F89E230AA9BD006B169B /* Photos.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Photos.framework; path = System/Library/Frameworks/Photos.framework; sourceTree = SDKROOT; };
-		27A0AE96235651360023D694 /* AvatarImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarImageView.swift; sourceTree = "<group>"; };
 		27A0AE98235657340023D694 /* YYWebImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = YYWebImage.framework; path = Carthage/Build/iOS/YYWebImage.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -147,7 +144,6 @@
 			isa = PBXGroup;
 			children = (
 				2718F83E230A51F9006B169B /* AvatarImagePicker.swift */,
-				27A0AE96235651360023D694 /* AvatarImageView.swift */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -266,7 +262,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				2718F83F230A51F9006B169B /* AvatarImagePicker.swift in Sources */,
-				27A0AE97235651360023D694 /* AvatarImageView.swift in Sources */,
 				2718F82C230A5159006B169B /* ViewController.swift in Sources */,
 				2718F82A230A5159006B169B /* AppDelegate.swift in Sources */,
 			);
@@ -276,7 +271,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				27A0AE9E2356707F0023D694 /* AvatarImageView.swift in Sources */,
 				2718F852230A6EDB006B169B /* AvatarImagePicker.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
