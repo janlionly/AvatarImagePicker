@@ -111,6 +111,13 @@ open class AvatarImagePicker: NSObject, UIImagePickerControllerDelegate, UINavig
         #endif
     }
     
+    public enum SourceType {
+        case photoLibrary
+        case camera
+    }
+    /// default both photolibrary and camera
+    public var sourceTypes: Set<SourceType> = [.photoLibrary, .camera]
+    
     public static var instance: AvatarImagePicker {
         if sharedInstance == nil {
             sharedInstance = AvatarImagePicker()
@@ -138,30 +145,50 @@ open class AvatarImagePicker: NSObject, UIImagePickerControllerDelegate, UINavig
                 print("Get window failed")
                 return
             }
-            let sheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
-            sheet.addAction(UIAlertAction(title: NSLocalizedString("Photo Library", comment: ""), style: .default, handler: { (_) in
-                self.imagePicker.sourceType = .photoLibrary
-                _ = AuthSettings.authPhotoLibrary(message: NSLocalizedString("Go to settings to authorize photo library", comment: ""), completion: {
-                    DispatchQueue.main.async {
-                        window.visibleViewController?.present(self.imagePicker, animated: true, completion: nil)
-                    }
-                })
+            
+            if sourceTypes.count > 2 {
+                let sheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+                sheet.addAction(UIAlertAction(title: NSLocalizedString("Photo Library", comment: ""), style: .default, handler: { (_) in
+                    self.imagePicker.sourceType = .photoLibrary
+                    _ = AuthSettings.authPhotoLibrary(message: NSLocalizedString("Go to settings to authorize photo library", comment: ""), completion: {
+                        DispatchQueue.main.async {
+                            window.visibleViewController?.present(self.imagePicker, animated: true, completion: nil)
+                        }
+                    })
+                    
+                }))
+                sheet.addAction(UIAlertAction(title: NSLocalizedString("Camera", comment: ""), style: .default, handler: { (_) in
+                    self.imagePicker.sourceType = .camera
+                    _ = AuthSettings.authCamera(message: NSLocalizedString("Go to settings to authorize camera", comment: ""), completion: {
+                        DispatchQueue.main.async {
+                            window.visibleViewController?.present(self.imagePicker, animated: true, completion: nil)
+                        }
+                    })
+                }))
+                sheet.addAction(UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .cancel, handler: { (_) in
+                    cancel?()
+                    AvatarImagePicker.sharedInstance = nil
+                }))
                 
-            }))
-            sheet.addAction(UIAlertAction(title: NSLocalizedString("Camera", comment: ""), style: .default, handler: { (_) in
+                window.visibleViewController?.present(sheet, animated: true, completion: nil)
+            } else if let type = sourceTypes.first, type == .camera {
                 self.imagePicker.sourceType = .camera
                 _ = AuthSettings.authCamera(message: NSLocalizedString("Go to settings to authorize camera", comment: ""), completion: {
                     DispatchQueue.main.async {
                         window.visibleViewController?.present(self.imagePicker, animated: true, completion: nil)
                     }
                 })
-            }))
-            sheet.addAction(UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .cancel, handler: { (_) in
-                cancel?()
-                AvatarImagePicker.sharedInstance = nil
-            }))
-            
-            window.visibleViewController?.present(sheet, animated: true, completion: nil)
+            } else if let type = sourceTypes.first, type == .photoLibrary {
+                self.imagePicker.sourceType = .photoLibrary
+                _ = AuthSettings.authPhotoLibrary(message: NSLocalizedString("Go to settings to authorize photo library", comment: ""), completion: {
+                    DispatchQueue.main.async {
+                        window.visibleViewController?.present(self.imagePicker, animated: true, completion: nil)
+                    }
+                })
+            } else {
+                print("ERROR:SourceTypes is empty")
+            }
+
         }
     }
     
