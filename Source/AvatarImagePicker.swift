@@ -118,6 +118,7 @@ open class AvatarImagePicker: NSObject, UIImagePickerControllerDelegate, UINavig
     /// default both photolibrary and camera
     public var sourceTypes: Set<SourceType> = [.photoLibrary, .camera]
     public var presentStyle: UIModalPresentationStyle = .fullScreen
+    public var dismissAnimated: Bool = true
     
     public static var instance: AvatarImagePicker {
         if sharedInstance == nil {
@@ -206,7 +207,7 @@ open class AvatarImagePicker: NSObject, UIImagePickerControllerDelegate, UINavig
                 self.cancel?()
             }
         }
-        picker.dismiss(animated: true) {
+        picker.dismiss(animated: dismissAnimated) {
             AvatarImagePicker.sharedInstance = nil
         }
     }
@@ -215,7 +216,7 @@ open class AvatarImagePicker: NSObject, UIImagePickerControllerDelegate, UINavig
         DispatchQueue.main.async {
             self.cancel?()
         }
-        picker.dismiss(animated: true) {
+        picker.dismiss(animated: dismissAnimated) {
             AvatarImagePicker.sharedInstance = nil
         }
     }
