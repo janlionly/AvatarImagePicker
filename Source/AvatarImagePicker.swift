@@ -198,16 +198,16 @@ open class AvatarImagePicker: NSObject, UIImagePickerControllerDelegate, UINavig
     // - MARK: Image picker delegate
     
     public func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        if let image = info[picker.allowsEditing ? .editedImage : .originalImage] as? UIImage {
-            DispatchQueue.main.async {
-                self.selected(image)
-            }
-        } else {
-            DispatchQueue.main.async {
-                self.cancel?()
-            }
-        }
         picker.dismiss(animated: dismissAnimated) {
+            if let image = info[picker.allowsEditing ? .editedImage : .originalImage] as? UIImage {
+                DispatchQueue.main.async {
+                    self.selected(image)
+                }
+            } else {
+                DispatchQueue.main.async {
+                    self.cancel?()
+                }
+            }
             AvatarImagePicker.sharedInstance = nil
         }
     }
