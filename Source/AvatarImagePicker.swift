@@ -117,6 +117,7 @@ open class AvatarImagePicker: NSObject, UIImagePickerControllerDelegate, UINavig
     }
     /// default both photolibrary and camera
     public var sourceTypes: Set<SourceType> = [.photoLibrary, .camera]
+    public var presentStyle: UIModalPresentationStyle = .fullScreen
     
     public static var instance: AvatarImagePicker {
         if sharedInstance == nil {
@@ -136,6 +137,7 @@ open class AvatarImagePicker: NSObject, UIImagePickerControllerDelegate, UINavig
     @objc open func present(allowsEditing: Bool, selected: @escaping (UIImage)->Void, cancel: (()->Void)?) {
         autoreleasepool {
             imagePicker = UIImagePickerController()
+            imagePicker.modalPresentationStyle = presentStyle
             imagePicker.allowsEditing = allowsEditing
             imagePicker.delegate = self
             self.selected = selected
