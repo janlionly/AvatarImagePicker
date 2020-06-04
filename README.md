@@ -53,7 +53,7 @@ AvatarImagePicker.instance.present(allowsEditing: true, selected: { (image) in
 ## Requirements
 
 - iOS 9.0+
-- Swift 4.2 to 5.0
+- Swift 4.2 to 5.2
 
 ## Author
 
