@@ -26,18 +26,25 @@ github "janlionly/AvatarImagePicker"
 
 ## Usage
 
-**AvatarImagePicker** is presented with an actionsheet for camera and photo library, and then presented an ImagePickerController.<br>
+**AvatarImagePicker** is presented with an actionsheet for camera and photo library, and then presented an ImagePickerController, optional some properties supports to customize, like **sourceTypes**, **presentStyle** and **dismissAnimated**.<br>
 
 Remember to add **NSCameraUsageDescription** and **NSPhotoLibraryUsageDescription**'s keys for descriptions to your Info.plist
 
 ### Swift
 
 ```swift
-AvatarImagePicker.instance.present(allowsEditing: true, selected: { (image) in
+let picker = AvatarImagePicker.instance
+
+// optional: custom properties
+picker.dismissAnimated = false // default is true
+picker.sourceTypes = [.camera] // default is [.camera, .photoLibrary]
+picker.presentStyle = .overFullScreen // default is .fullScreen
+
+picker.present(allowsEditing: true, selected: { (image) in
 	// selected image
 }) {
 	// tapped cancel
-   }
+   } 
 ```
 
 ### Objective-C
