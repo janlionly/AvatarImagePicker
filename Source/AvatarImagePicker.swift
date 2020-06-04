@@ -149,7 +149,7 @@ open class AvatarImagePicker: NSObject, UIImagePickerControllerDelegate, UINavig
                 return
             }
             
-            if sourceTypes.count > 2 {
+            if sourceTypes.count > 1 {
                 let sheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
                 sheet.addAction(UIAlertAction(title: NSLocalizedString("Photo Library", comment: ""), style: .default, handler: { (_) in
                     self.imagePicker.sourceType = .photoLibrary
