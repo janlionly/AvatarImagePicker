@@ -1,3 +1,4 @@
+# AvatarImagePicker
 <img src="https://github.com/janlionly/AvatarImagePicker/blob/master/Resources/AvatarImagePickerPresentation.png" width="250" height="541">
 
 [![Version](https://img.shields.io/cocoapods/v/AvatarImagePicker.svg?style=flat)](https://cocoapods.org/pods/AvatarImagePicker)
@@ -13,15 +14,20 @@ written in Swift, it's just a single line of code, support for selecting user's 
 ## Installation
 
 ### CocoaPods
-
 ```ruby
 pod 'AvatarImagePicker'
 ```
 
 ### Carthage
-
 ```ruby
 github "janlionly/AvatarImagePicker"
+```
+
+### Swift Package Manager
+- iOS: Open Xcode, File->Swift Packages, search input **https://github.com/janlionly/AvatarImagePicker.git**, and then select Version Up to Next Major **1.2.8** < .
+- Or add dependencies in your `Package.swift`:
+```swift
+.package(url: "https://github.com/janlionly/AvatarImagePicker.git", .upToNextMajor(from: "1.2.8")),
 ```
 
 ## Usage
