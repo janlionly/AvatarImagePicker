@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'AvatarImagePicker'
-  s.version          = '1.2.7'
+  s.version          = '1.2.8'
   s.summary          = 'A single line of code for selecting the optional editing image from Camera or Photo Library.'
  
   s.description      = <<-DESC
@@ -15,7 +15,7 @@ written in Swift, it's just a single line of code, support for selecting user's 
   s.social_media_url = 'https://twitter.com/janlionly'
   s.ios.deployment_target = '9.0'
   s.requires_arc = true
-  s.source_files = 'Source/*'
+  s.source_files = 'Sources/AvatarImagePicker/*'
   s.frameworks = 'UIKit', 'AVFoundation', 'Photos'
   s.swift_versions = ['4.2', '5.0', '5.1', '5.2']
   s.pod_target_xcconfig = { 'SWIFT_VERSION' => '4.2' }

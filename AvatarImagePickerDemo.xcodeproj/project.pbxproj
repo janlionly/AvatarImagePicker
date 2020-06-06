@@ -7,15 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2700F102248BC66700EB81FF /* AvatarImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2700F101248BC66700EB81FF /* AvatarImagePicker.swift */; };
+		2700F103248BC66F00EB81FF /* AvatarImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2700F101248BC66700EB81FF /* AvatarImagePicker.swift */; };
 		2718F82A230A5159006B169B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2718F829230A5159006B169B /* AppDelegate.swift */; };
 		2718F82C230A5159006B169B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2718F82B230A5159006B169B /* ViewController.swift */; };
 		2718F82F230A5159006B169B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2718F82D230A5159006B169B /* Main.storyboard */; };
 		2718F831230A515A006B169B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2718F830230A515A006B169B /* Assets.xcassets */; };
 		2718F834230A515A006B169B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2718F832230A515A006B169B /* LaunchScreen.storyboard */; };
-		2718F83F230A51F9006B169B /* AvatarImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2718F83E230A51F9006B169B /* AvatarImagePicker.swift */; };
 		2718F84C230A6EC5006B169B /* AvatarImagePicker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2718F845230A6EC4006B169B /* AvatarImagePicker.framework */; };
 		2718F84D230A6EC5006B169B /* AvatarImagePicker.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2718F845230A6EC4006B169B /* AvatarImagePicker.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		2718F852230A6EDB006B169B /* AvatarImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2718F83E230A51F9006B169B /* AvatarImagePicker.swift */; };
 		2718F857230A7A3B006B169B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2718F856230A7A3B006B169B /* UIKit.framework */; };
 		2718F89D230AA9B4006B169B /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2718F89C230AA9B4006B169B /* AVFoundation.framework */; };
 		2718F89F230AA9BD006B169B /* Photos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2718F89E230AA9BD006B169B /* Photos.framework */; };
@@ -46,6 +46,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		2700F101248BC66700EB81FF /* AvatarImagePicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AvatarImagePicker.swift; sourceTree = "<group>"; };
 		2718F826230A5159006B169B /* AvatarImagePickerDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AvatarImagePickerDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2718F829230A5159006B169B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2718F82B230A5159006B169B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -53,7 +54,6 @@
 		2718F830230A515A006B169B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2718F833230A515A006B169B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2718F835230A515A006B169B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		2718F83E230A51F9006B169B /* AvatarImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarImagePicker.swift; sourceTree = "<group>"; };
 		2718F845230A6EC4006B169B /* AvatarImagePicker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AvatarImagePicker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2718F848230A6EC5006B169B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2718F856230A7A3B006B169B /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -83,10 +83,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2700F0FF248BC66700EB81FF /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				2700F100248BC66700EB81FF /* AvatarImagePicker */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		2700F100248BC66700EB81FF /* AvatarImagePicker */ = {
+			isa = PBXGroup;
+			children = (
+				2700F101248BC66700EB81FF /* AvatarImagePicker.swift */,
+			);
+			path = AvatarImagePicker;
+			sourceTree = "<group>";
+		};
 		2718F81D230A5159006B169B = {
 			isa = PBXGroup;
 			children = (
-				2720C7F2230BE3B400A24F09 /* Source */,
+				2700F0FF248BC66700EB81FF /* Sources */,
 				2718F828230A5159006B169B /* AvatarImagePickerDemo */,
 				2718F846230A6EC5006B169B /* AvatarImagePicker */,
 				2718F827230A5159006B169B /* Products */,
@@ -132,14 +148,6 @@
 				2718F856230A7A3B006B169B /* UIKit.framework */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		2720C7F2230BE3B400A24F09 /* Source */ = {
-			isa = PBXGroup;
-			children = (
-				2718F83E230A51F9006B169B /* AvatarImagePicker.swift */,
-			);
-			path = Source;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -255,7 +263,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2718F83F230A51F9006B169B /* AvatarImagePicker.swift in Sources */,
+				2700F102248BC66700EB81FF /* AvatarImagePicker.swift in Sources */,
 				2718F82C230A5159006B169B /* ViewController.swift in Sources */,
 				2718F82A230A5159006B169B /* AppDelegate.swift in Sources */,
 			);
@@ -265,7 +273,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2718F852230A6EDB006B169B /* AvatarImagePicker.swift in Sources */,
+				2700F103248BC66F00EB81FF /* AvatarImagePicker.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -493,7 +501,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.2.7;
+				MARKETING_VERSION = 1.2.8;
 				PRODUCT_BUNDLE_IDENTIFIER = com.janlion.AvatarImagePicker;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
@@ -527,7 +535,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.2.7;
+				MARKETING_VERSION = 1.2.8;
 				PRODUCT_BUNDLE_IDENTIFIER = com.janlion.AvatarImagePicker;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
