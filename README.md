@@ -1,4 +1,4 @@
-# AvatarImagePicker
+# AvatarImagePicker & AuthSettings
 <img src="https://github.com/janlionly/AvatarImagePicker/blob/master/Resources/AvatarImagePickerPresentation.png" width="250" height="541">
 <img src="https://github.com/janlionly/AvatarImagePicker/blob/master/Resources/AuthSettings.png" width="250" height="541">
 
