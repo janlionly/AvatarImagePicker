@@ -47,20 +47,22 @@ picker.dismissAnimated = false // default is true
 picker.sourceTypes = [.camera] // default is [.camera, .photoLibrary]
 picker.presentStyle = .overFullScreen // default is .fullScreen
 
+// this method include auths for photolibrary and camera.
 picker.present(allowsEditing: true, selected: { (image) in
 	// selected image
 }) {
 	// tapped cancel
    } 
 
-// auth photolibrary and camera, it will alert the user to go to settings if the photolibrary or camera was denied.
-_ = AuthSettings.authPhotoLibrary(message: "auth photolibrary to get your avatar") {
+
+// or you can call only auth photolibrary and camera, it will alert the user to go to settings if the photolibrary or camera was denied.
+let isAuthSuccess = AuthSettings.authPhotoLibrary(message: "auth photolibrary to get your avatar") {
   print("auth success")
-  // go to present image picker controller(photo library)
+  // go to present image picker controller(photo library), customize your operation here.
 }
-_ = AuthSettings.authCamera(message: "auth photolibrary to get your avatar") {
+_ = AuthSettings.authCamera(message: "auth camera to get your avatar") {
   print("auth success")
-  // go to present image picker controller(camera)
+  // go to present image picker controller(camera), customize your operation here.
 }
 ```
 
