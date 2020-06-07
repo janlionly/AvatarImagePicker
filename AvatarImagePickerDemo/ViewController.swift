@@ -23,6 +23,10 @@ class ViewController: UIViewController {
         _ = AuthSettings.authPhotoLibrary(message: "auth photolibrary to get your avatar") {
             print("auth success")
         }
+        
+//        _ = AuthSettings.authCamera(message: "auth photolibrary to get your avatar") {
+//            print("auth success")
+//        }
     }
 }
 

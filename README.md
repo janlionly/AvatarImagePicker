@@ -1,5 +1,6 @@
 # AvatarImagePicker
 <img src="https://github.com/janlionly/AvatarImagePicker/blob/master/Resources/AvatarImagePickerPresentation.png" width="250" height="541">
+<img src="https://github.com/janlionly/AvatarImagePicker/blob/master/Resources/AuthSettings.png" width="250" height="541">
 
 [![Version](https://img.shields.io/cocoapods/v/AvatarImagePicker.svg?style=flat)](https://cocoapods.org/pods/AvatarImagePicker)
 [![Carthage Compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
@@ -51,6 +52,16 @@ picker.present(allowsEditing: true, selected: { (image) in
 }) {
 	// tapped cancel
    } 
+
+// auth photolibrary and camera, it will alert the user to go to settings if the photolibrary or camera was denied.
+_ = AuthSettings.authPhotoLibrary(message: "auth photolibrary to get your avatar") {
+  print("auth success")
+  // go to present image picker controller(photo library)
+}
+_ = AuthSettings.authCamera(message: "auth photolibrary to get your avatar") {
+  print("auth success")
+  // go to present image picker controller(camera)
+}
 ```
 
 ### Objective-C
