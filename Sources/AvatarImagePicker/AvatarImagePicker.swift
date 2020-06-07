@@ -30,8 +30,8 @@ extension UIWindow {
     }
 }
 
-class AuthSettings: NSObject {
-    static func authCamera(message: String, completion: @escaping ()->Void) -> Bool {
+open class AuthSettings: NSObject {
+    public static func authCamera(message: String, completion: @escaping ()->Void) -> Bool {
         let status = AVCaptureDevice.authorizationStatus(for: .video)
         switch status {
         case .authorized:
@@ -56,7 +56,7 @@ class AuthSettings: NSObject {
         return false
     }
     
-    static func authPhotoLibrary(message: String, completion: @escaping ()->Void) -> Bool {
+    public static func authPhotoLibrary(message: String, completion: @escaping ()->Void) -> Bool {
         let status = PHPhotoLibrary.authorizationStatus()
         switch status {
         case .authorized:
