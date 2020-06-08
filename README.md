@@ -47,7 +47,7 @@ picker.dismissAnimated = false // default is true
 picker.sourceTypes = [.camera] // default is [.camera, .photoLibrary]
 picker.presentStyle = .overFullScreen // default is .fullScreen
 
-// this method include auths for photolibrary and camera.
+// this method includes authorizing for photolibrary and camera.
 picker.present(allowsEditing: true, selected: { (image) in
 	// selected image
 }) {
