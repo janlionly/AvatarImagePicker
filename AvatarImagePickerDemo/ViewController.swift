@@ -15,14 +15,14 @@ class ViewController: UIViewController {
     // - MARK: Actions
     
     @IBAction func imageViewTapped(_ sender: Any) {
-//        AvatarImagePicker.instance.present(allowsEditing: true, selected: { (image) in
-//            self.imageView.image = image
-//        }) {
-//            print("Tap cancel")
-//        }
-        _ = AuthSettings.authPhotoLibrary(message: "auth photolibrary to get your avatar") {
-            print("auth success")
+        AvatarImagePicker.instance.present(allowsEditing: true, selected: { (image) in
+            self.imageView.image = image
+        }) {
+            print("Tap cancel")
         }
+//        _ = AuthSettings.authPhotoLibrary(message: "auth photolibrary to get your avatar") {
+//            print("auth success")
+//        }
         
 //        _ = AuthSettings.authCamera(message: "auth photolibrary to get your avatar") {
 //            print("auth success")
