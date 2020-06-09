@@ -1,6 +1,5 @@
 # AvatarImagePicker & AuthSettings
-<img src="https://media.giphy.com/media/fwnDxpeNEJSJefW5S9/giphy.gif" width="250" height="541">
-<img src="https://github.com/janlionly/AvatarImagePicker/blob/master/Resources/AuthSettings.png" width="250" height="541">
+<img src="https://media.giphy.com/media/d8cCPuT1hjkNNb2dnT/giphy.gif" width="250" height="541">	&	<img src="https://github.com/janlionly/AvatarImagePicker/blob/master/Resources/AuthSettings.png" width="250" height="541">
 
 [![Version](https://img.shields.io/cocoapods/v/AvatarImagePicker.svg?style=flat)](https://cocoapods.org/pods/AvatarImagePicker)
 [![Carthage Compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
