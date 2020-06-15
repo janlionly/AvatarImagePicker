@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'AvatarImagePicker'
-  s.version          = '1.2.9'
+  s.version          = '1.2.10'
   s.summary          = 'A single line of code for selecting the optional editing image from Camera or Photo Library.'
  
   s.description      = <<-DESC
