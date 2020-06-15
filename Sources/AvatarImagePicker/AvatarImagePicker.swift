@@ -11,7 +11,7 @@ import AVFoundation
 import Photos
 
 extension UIWindow {
-    fileprivate var visibleViewController: UIViewController? {
+    public var visibleViewController: UIViewController? {
         return UIWindow.getVisibleViewControllerFrom(self.rootViewController)
     }
     
