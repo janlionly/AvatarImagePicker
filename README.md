@@ -24,10 +24,10 @@ github "janlionly/AvatarImagePicker"
 ```
 
 ### Swift Package Manager
-- iOS: Open Xcode, File->Swift Packages, search input **https://github.com/janlionly/AvatarImagePicker.git**, and then select Version Up to Next Major **1.2.9** < .
+- iOS: Open Xcode, File->Swift Packages, search input **https://github.com/janlionly/AvatarImagePicker.git**, and then select Version Up to Next Major **1.3.0** < .
 - Or add dependencies in your `Package.swift`:
 ```swift
-.package(url: "https://github.com/janlionly/AvatarImagePicker.git", .upToNextMajor(from: "1.2.9")),
+.package(url: "https://github.com/janlionly/AvatarImagePicker.git", .upToNextMajor(from: "1.3.0")),
 ```
 
 ## Usage
