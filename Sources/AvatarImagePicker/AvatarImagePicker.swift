@@ -172,8 +172,7 @@ open class AvatarImagePicker: NSObject, UIImagePickerControllerDelegate, UINavig
                     cancel?()
                     AvatarImagePicker.sharedInstance = nil
                 }))
-                
-                window.visibleViewController?.present(sheet, animated: true, completion: nil)
+                present(for: sheet)
             } else if let type = sourceTypes.first, type == .camera {
                 self.imagePicker.sourceType = .camera
                 _ = AuthSettings.authCamera(message: NSLocalizedString("Go to settings to authorize camera", comment: ""), completion: {
@@ -192,6 +191,21 @@ open class AvatarImagePicker: NSObject, UIImagePickerControllerDelegate, UINavig
                 print("ERROR:SourceTypes is empty")
             }
 
+        }
+    }
+    
+    func present(for alertController: UIAlertController) {
+        DispatchQueue.main.async {
+            guard let window = UIApplication.shared.windows.first else {
+                print("Get window failed")
+                return
+            }
+            if let popoverPresentationController = alertController.popoverPresentationController, let ctrl = window.visibleViewController {
+                popoverPresentationController.sourceView = ctrl.view
+                popoverPresentationController.sourceRect = CGRect(x: ctrl.view.bounds.midX, y: ctrl.view.bounds.midY, width: 0, height: 0)
+                popoverPresentationController.permittedArrowDirections = []
+            }
+            window.visibleViewController?.present(alertController, animated: true)
         }
     }
     
