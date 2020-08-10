@@ -54,6 +54,12 @@ picker.present(allowsEditing: true, selected: { (image) in
    } 
 
 
+// v1.3.1 updated: support to customize actions for sheet
+picker.sourceTypes = [.camera, .customAction]
+weak var weakSelf = self
+picker.customActions = ["Delete": { weakSelf?.imageView.image = nil }]
+
+
 // or you can call only auth photolibrary and camera, it will alert the user to go to settings if the photolibrary or camera was denied.
 let isAuthSuccess = AuthSettings.authPhotoLibrary(message: "auth photolibrary to get your avatar") {
   print("auth success")

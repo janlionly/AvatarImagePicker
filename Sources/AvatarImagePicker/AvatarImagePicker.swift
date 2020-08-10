@@ -114,11 +114,13 @@ open class AvatarImagePicker: NSObject, UIImagePickerControllerDelegate, UINavig
     public enum SourceType {
         case photoLibrary
         case camera
+        case customAction
     }
     /// default both photolibrary and camera
     public var sourceTypes: Set<SourceType> = [.photoLibrary, .camera]
     public var presentStyle: UIModalPresentationStyle = .fullScreen
     public var dismissAnimated: Bool = true
+    public var customActions: [String: ()->Void] = [:]
     
     public static var instance: AvatarImagePicker {
         if sharedInstance == nil {
@@ -151,27 +153,40 @@ open class AvatarImagePicker: NSObject, UIImagePickerControllerDelegate, UINavig
             
             if sourceTypes.count > 1 {
                 let sheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
-                sheet.addAction(UIAlertAction(title: NSLocalizedString("Photo Library", comment: ""), style: .default, handler: { (_) in
-                    self.imagePicker.sourceType = .photoLibrary
-                    _ = AuthSettings.authPhotoLibrary(message: NSLocalizedString("Go to settings to authorize photo library", comment: ""), completion: {
-                        DispatchQueue.main.async {
-                            window.visibleViewController?.present(self.imagePicker, animated: true, completion: nil)
-                        }
-                    })
-                    
-                }))
-                sheet.addAction(UIAlertAction(title: NSLocalizedString("Camera", comment: ""), style: .default, handler: { (_) in
-                    self.imagePicker.sourceType = .camera
-                    _ = AuthSettings.authCamera(message: NSLocalizedString("Go to settings to authorize camera", comment: ""), completion: {
-                        DispatchQueue.main.async {
-                            window.visibleViewController?.present(self.imagePicker, animated: true, completion: nil)
-                        }
-                    })
-                }))
+                
+                if sourceTypes.contains(.photoLibrary) {
+                    sheet.addAction(UIAlertAction(title: NSLocalizedString("Photo Library", comment: ""), style: .default, handler: { (_) in
+                        self.imagePicker.sourceType = .photoLibrary
+                        _ = AuthSettings.authPhotoLibrary(message: NSLocalizedString("Go to settings to authorize photo library", comment: ""), completion: {
+                            DispatchQueue.main.async {
+                                window.visibleViewController?.present(self.imagePicker, animated: true, completion: nil)
+                            }
+                        })
+                        
+                    }))
+                }
+                
+                if sourceTypes.contains(.camera) {
+                    sheet.addAction(UIAlertAction(title: NSLocalizedString("Camera", comment: ""), style: .default, handler: { (_) in
+                        self.imagePicker.sourceType = .camera
+                        _ = AuthSettings.authCamera(message: NSLocalizedString("Go to settings to authorize camera", comment: ""), completion: {
+                            DispatchQueue.main.async {
+                                window.visibleViewController?.present(self.imagePicker, animated: true, completion: nil)
+                            }
+                        })
+                    }))
+                }
+
                 sheet.addAction(UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .cancel, handler: { (_) in
                     cancel?()
                     AvatarImagePicker.sharedInstance = nil
                 }))
+                
+                for (key, value) in customActions {
+                    sheet.addAction(UIAlertAction(title: key, style: .default, handler: { (_) in
+                        value()
+                    }))
+                }
                 present(for: sheet)
             } else if let type = sourceTypes.first, type == .camera {
                 self.imagePicker.sourceType = .camera
