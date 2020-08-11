@@ -54,7 +54,7 @@ picker.present(allowsEditing: true, selected: { (image) in
    } 
 
 
-// v1.3.1 updated: support to customize actions for sheet
+// v1.3.2 updated: support to customize actions for sheet
 picker.sourceTypes = [.camera, .customAction]
 weak var weakSelf = self
 picker.customActions = ["Delete": { weakSelf?.imageView.image = nil }]
