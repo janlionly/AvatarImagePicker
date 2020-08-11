@@ -185,6 +185,7 @@ open class AvatarImagePicker: NSObject, UIImagePickerControllerDelegate, UINavig
                 for (key, value) in customActions {
                     sheet.addAction(UIAlertAction(title: key, style: .default, handler: { (_) in
                         value()
+                        AvatarImagePicker.sharedInstance = nil
                     }))
                 }
                 present(for: sheet)
