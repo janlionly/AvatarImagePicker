@@ -101,6 +101,7 @@ open class AvatarImagePicker: NSObject, UIImagePickerControllerDelegate, UINavig
     private static var sharedInstance: AvatarImagePicker? = nil
     private var imagePicker: UIImagePickerController!
     private var selected: ((UIImage)->Void)!
+    private var completion: (()->Void)? = nil
     private var cancel:(()->Void)?
     
     private override init(){}
@@ -137,7 +138,7 @@ open class AvatarImagePicker: NSObject, UIImagePickerControllerDelegate, UINavig
         return sharedInstance!
     }
     
-    @objc open func present(allowsEditing: Bool, selected: @escaping (UIImage)->Void, cancel: (()->Void)?) {
+    @objc open func present(allowsEditing: Bool, didPresentSheetCompletion: (()->Void)? = nil, selected: @escaping (UIImage)->Void, cancel: (()->Void)?) {
         autoreleasepool {
             imagePicker = UIImagePickerController()
             imagePicker.modalPresentationStyle = presentStyle
@@ -145,6 +146,7 @@ open class AvatarImagePicker: NSObject, UIImagePickerControllerDelegate, UINavig
             imagePicker.delegate = self
             self.selected = selected
             self.cancel = cancel
+            self.completion = didPresentSheetCompletion
 
             guard let window = UIApplication.shared.windows.first else {
                 print("Get window failed")
@@ -222,6 +224,10 @@ open class AvatarImagePicker: NSObject, UIImagePickerControllerDelegate, UINavig
                 popoverPresentationController.permittedArrowDirections = []
             }
             window.visibleViewController?.present(alertController, animated: true)
+            
+            DispatchQueue.main.async {
+                self.completion?()
+            }
         }
     }
     
